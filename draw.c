@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 17:53:53 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:24:06 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void	iso(t_pixels **pixels, int r, int c)
 		while (j < c)
 		{
 			x = pixels[i][j].x;
-			pixels[i][j].x = (x - pixels[i][j].y) * cos(0.523599);
-			pixels[i][j].y = (x + pixels[i][j].y) * sin(0.523599) - pixels[i][j].z;
+			pixels[i][j].x = (x - pixels[i][j].y) * cos(.523599);
+			pixels[i][j].y = (x + pixels[i][j].y) * sin(.523599) - pixels[i][j].z;
 			j++;
 		}
 		i++;
@@ -73,6 +73,7 @@ static void	project(t_pixels **pixels, int r, int c, t_data *img)
 	i = 0;
 	iso(pixels, r, c);
 	center(pixels, r, c);
+
 
 	while (i < r)
 	{
