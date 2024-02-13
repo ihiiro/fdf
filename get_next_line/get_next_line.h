@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:10:00 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 14:07:54 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:45:34 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4
+#  define BUFFER_SIZE 5
 # endif
 # if BUFFER_SIZE < 0 || BUFFER_SIZE > INT_MAX
 #  undef BUFFER_SIZE

@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:43:41 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 14:17:18 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:42:59 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,12 @@ static int	rgb(char *hex)
 		i++;
 	i--;
 	j = 0;
-	// printf("%d", i); exit(0);
 	while (i >= 0)
 	{
-		// printf("i=%d, pow=%d, hex[j]=%d, %d\n", i, pow(16, 5), hex_to_dec(hex[j]), hex_to_dec(hex[j]) * pow(16, i));
-		// printf("%d, ", hex_to_dec(hex[j]) * pow(16, i));
 		dec += hex_to_dec(hex[j]) * pow(16, i);
-		// printf("dec=%d\n", dec); 
 		i--;
 		j++;
 	}
-	// exit(0);
-	// printf("%d", dec); exit(0);
 	return (dec);
 }
 
@@ -92,6 +86,8 @@ static void	cols_fill(t_pixels *row, char *line, int cols, int y)
 			line++;
 		if (*line == ',')
 			row[i].rgb = rgb(line + 3);
+		else
+			row[i].rgb = 0xFFFFFF;
 		while (*line && *line != 32)
 			line++;
 		while (*line == 32)

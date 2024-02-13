@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 15:36:22 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 15:47:08 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static void	project(t_pixels **pixels, int r, int c, t_data *img)
 		j = 0;
 		while (j < c)
 		{
-			put_pixels(img, pixels[i][j].x, pixels[i][j].y, pixels[i][j].rgb);
+			put_pixels(img, pixels[i][j].x, pixels[i][j].y - pixels[i][j].z, pixels[i][j].rgb);
+			// put_pixels(img, pixels[i][j].x, pixels[i][j].y, pixels[i][j].rgb);
 			j++;
 		}
 		i++;
