@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 19:24:06 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 19:52:37 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <mlx.h>
 #include "fdf.h"
 
-static void	put_pixels(t_data *data, int x, int y, int color)
+void	put_pixels(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -64,7 +64,7 @@ static void	center(t_pixels **pixels, int r, int c)
 		i++;
 	}
 }
-#include <stdio.h>
+
 static void	project(t_pixels **pixels, int r, int c, t_data *img)
 {
 	int	i;
@@ -73,20 +73,17 @@ static void	project(t_pixels **pixels, int r, int c, t_data *img)
 	i = 0;
 	iso(pixels, r, c);
 	center(pixels, r, c);
-
-
 	while (i < r)
 	{
 		j = 0;
 		while (j < c)
 		{
 			put_pixels(img, pixels[i][j].x, pixels[i][j].y, pixels[i][j].rgb);
-			printf("%d, %d, %d\n", pixels[i][j].x, pixels[i][j].y, pixels[i][j].z);
-			// put_pixels(img, pixels[i][j].x, pixels[i][j].y, pixels[i][j].rgb);
 			j++;
 		}
 		i++;
 	}
+	bresenhams(pixels, r, c, img);
 }
 
 void	draw(t_pixels **pixels, int r, int c)
