@@ -6,12 +6,15 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 15:34:21 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:15:32 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+
+# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 1920
 
 typedef struct	s_pixels
 {
