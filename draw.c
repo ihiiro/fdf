@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/14 13:20:17 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:31:29 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	project(t_pixels **pixels, int r, int c, t_data *img)
 	int	j;
 
 	i = 0;
-	iso_y(pixels, r, c, -20);
-	iso_x(pixels, r, c, 80);
+	iso_y(pixels, r, c, -55);
+	iso_x(pixels, r, c, 55);
 	center(pixels, r, c);
 	while (i < r)
 	{
