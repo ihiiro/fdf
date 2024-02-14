@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 19:52:37 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:20:17 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,10 @@ void	put_pixels(t_data *data, int x, int y, int color)
 
 	if (x < WINDOW_WIDTH && x >= 0 && y < WINDOW_HEIGHT && y >= 0)
 	{
-		dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+		dst = data->addr + (y * data->line_length
+				+ x * (data->bits_per_pixel / 8));
 		*(unsigned int *)dst = color;
 	}
-}
-
-static void	iso(t_pixels **pixels, int r, int c)
-{
-	int	i;
-	int	j;
-	int	x;
-
-	i = 0;
-	while (i < r)
-	{
-		j = 0;
-		while (j < c)
-		{
-			x = pixels[i][j].x;
-			pixels[i][j].x = (x - pixels[i][j].y) * cos(.523599);
-			pixels[i][j].y = (x + pixels[i][j].y) * sin(.523599) - pixels[i][j].z;
-			j++;
-		}
-		i++;
-	}	
 }
 
 static void	center(t_pixels **pixels, int r, int c)
@@ -71,7 +51,8 @@ static void	project(t_pixels **pixels, int r, int c, t_data *img)
 	int	j;
 
 	i = 0;
-	iso(pixels, r, c);
+	iso_y(pixels, r, c, -20);
+	iso_x(pixels, r, c, 80);
 	center(pixels, r, c);
 	while (i < r)
 	{

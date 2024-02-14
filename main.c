@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:03 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 15:24:15 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/14 12:56:34 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ draw pixels isometrically
 
 */
 
+#include <stdlib.h>
 #include <fcntl.h>
 #include "fdf.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 int	main(int argc, char **argv)
 {
 	t_pixels	**pixels;

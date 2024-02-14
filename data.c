@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:43:41 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/13 20:04:47 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/14 13:18:52 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ static void	cols_fill(t_pixels *row, char *line, int cols, int y)
 	x = 0;
 	while (i < cols)
 	{
-		row[i].z = satoi(line) * -8;
-		row[i].x = x * -8;
-		row[i].y = y * -8;
+		row[i].z = satoi(line) * -30;
+		row[i].x = x * -30;
+		row[i].y = y * -30;
 		while (*line >= '0' && *line <= '9')
 			line++;
 		if (*line == ',')
@@ -111,7 +111,7 @@ void	data(t_pixels **pixels, char *mapfile, int rows, int cols)
 	while (y < rows)
 	{
 		cols_fill(pixels[y], row, cols, y);
-		// free(row)
+		free(row);
 		row = get_next_line(fd);
 		y++;
 	}
