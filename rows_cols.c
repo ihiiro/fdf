@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:10:38 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/14 12:54:33 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:48:48 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	cols(char *mapfile)
 	n = 0;
 	i = 0;
 	cols = get_next_line(fd);
+	if (!cols)
+		exit(EXIT_FAILURE);
 	while (cols[i])
 	{
 		while (cols[i] == 32)
@@ -53,6 +55,8 @@ int	rows(char *mapfile)
 	n = 0;
 	i = 0;
 	rows = get_next_line(fd);
+	if (!rows)
+		exit(EXIT_FAILURE);
 	while (rows)
 	{
 		n++;
