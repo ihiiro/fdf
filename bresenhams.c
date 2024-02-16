@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:36:35 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/14 14:43:18 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:51:50 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int	abs(int n)
 
 static void	b_fill(t_bresenhams *vars, t_pixels pixel0, t_pixels pixel1)
 {
-	vars->x0 = pixel0.x;
-	vars->x1 = pixel1.x;
-	vars->y0 = pixel0.y;
-	vars->y1 = pixel1.y;
+	vars->x0 = pixel0.x_transform;
+	vars->x1 = pixel1.x_transform;
+	vars->y0 = pixel0.y_transform;
+	vars->y1 = pixel1.y_transform;
 	vars->dx = abs(vars->x1 - vars->x0);
 	vars->dy = -abs(vars->y1 - vars->y0);
 	vars->err = vars->dx + vars->dy;

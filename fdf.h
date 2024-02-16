@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:33:09 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:49:05 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_pixels
 	int			x;
 	int			y;
 	int			z;
-	int			x_origin;
-	int			y_origin;
-	int			z_origin;
+	int			x_transform;
+	int			y_transform;
+	int			z_transform;
 	int			rgb;
 }				t_pixels;
 

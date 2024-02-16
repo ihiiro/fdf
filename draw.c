@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:30:24 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:03:23 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void	center(t_pixels **pixels, int r, int c)
 		j = 0;
 		while (j < c)
 		{
-			pixels[i][j].x = (WINDOW_WIDTH / 2) - pixels[i][j].x;
-			pixels[i][j].y = (WINDOW_HEIGHT / 2) - pixels[i][j].y;
+			pixels[i][j].x_transform = (WINDOW_WIDTH / 2) - pixels[i][j].x_transform;
+			pixels[i][j].y_transform = (WINDOW_HEIGHT / 2) - pixels[i][j].y_transform;
 			j++;
 		}
 		i++;
@@ -59,7 +59,7 @@ void	project_iso(t_vars *vars)
 		j = 0;
 		while (j < vars->c)
 		{
-			put_pixels(vars->img, vars->pixels[i][j].x, vars->pixels[i][j].y,
+			put_pixels(vars->img, vars->pixels[i][j].x_transform, vars->pixels[i][j].y_transform,
 				vars->pixels[i][j].rgb);
 			j++;
 		}
@@ -74,14 +74,14 @@ void	project_isfo(t_vars *vars)
 	int	j;
 
 	i = 0;
-	iso_y(vars->pixels, vars->r, vars->c, +55);
-	iso_x(vars->pixels, vars->r, vars->c, -55);
+	// iso_y(vars->pixels, vars->r, vars->c, +55);
+	// iso_x(vars->pixels, vars->r, vars->c, -55);
 	while (i < vars->r)
 	{
 		j = 0;
 		while (j < vars->c)
 		{
-			put_pixels(vars->img, vars->pixels[i][j].x, vars->pixels[i][j].y,
+			put_pixels(vars->img, vars->pixels[i][j].x_transform, vars->pixels[i][j].y_transform,
 				vars->pixels[i][j].rgb);
 			j++;
 		}
