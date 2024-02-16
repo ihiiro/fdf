@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 09:53:57 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:11:48 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	exitf(char *msg);
 
 void	data(t_pixels **pixels, char *mapfile, int rows, int cols);
 
-void	draw(t_pixels **pixels, int r, int c);
+void	draw(t_pixels **pixels, t_vars vars);
 
 void	put_pixels(t_data *data, int x, int y, int color);
 

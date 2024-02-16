@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:03 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 09:45:15 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:09:27 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,24 @@ draw pixels isometrically
 
 */
 
+#include <mlx.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include "fdf.h"
 
 int	main(int argc, char **argv)
 {
-	t_pixels	**pixels;
+	t_vars		vars;
 	int			i;
-	int			r;
-	int			c;
 
-	r = rows(argv[1]);
-	c = cols(argv[1]);
-	pixels = (t_pixels **)malloc(sizeof(t_pixels *) * r);
+	vars.r = rows(argv[1]);
+	vars.c = cols(argv[1]);
+	vars.pixels = (t_pixels **)malloc(sizeof(t_pixels *) * vars.r);
+	vars.mlx = mlx_init();
+	vars.mlx_win = mlx_new_window(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FdF");
 	i = 0;
-	while (i < r)
-		pixels[i++] = (t_pixels *)malloc(sizeof(t_pixels) * c);
-	data(pixels, argv[1], r, c);
-	draw(pixels, r, c);
+	while (i < vars.r)
+		vars.pixels[i++] = (t_pixels *)malloc(sizeof(t_pixels) * vars.c);
+	data(vars.pixels, argv[1], vars.r, vars.c);
+	draw(vars.pixels, vars);
 }
