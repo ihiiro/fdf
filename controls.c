@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 12:31:45 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:27:33 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	transform(t_pixels *pixel)
 }
 
 #include <stdio.h>
-static void	zoom(t_pixels **pixels, int r, int c, int zm)
+void	zoom(t_pixels **pixels, int r, int c, int zm)
 {
 	int	i;
 	int	j;
@@ -39,12 +39,10 @@ static void	zoom(t_pixels **pixels, int r, int c, int zm)
 		while (j < c)
 		{
 			transform(&pixels[i][j]);
-
 			pixels[i][j].x_transform = pixels[i][j].x_transform * zm;
 			pixels[i][j].y_transform = pixels[i][j].y_transform * zm;
 			pixels[i][j].z_transform = pixels[i][j].z_transform * zm;
-
-			printf("x=%d, y=%d, z=%d\n", pixels[i][j].x, pixels[i][j].y, pixels[i][j].z);
+			// printf("x=%d, y=%d, z=%d\n", pixels[i][j].x, pixels[i][j].y, pixels[i][j].z);
 			j++;
 		}
 		i++;
@@ -58,9 +56,19 @@ int	key_hook(int keycode, t_vars *vars)
 	vars->img->img = mlx_new_image(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	vars->img->addr = mlx_get_data_addr(vars->img->img, &vars->img->bits_per_pixel,
 			&vars->img->line_length, &vars->img->endian);
-	zoom(vars->pixels, vars->r, vars->c, vars->zm);
+	if (keycode == 6)
+	{
+		vars->zm += 1;
+		zoom(vars->pixels, vars->r, vars->c, vars->zm);
+	}
+	else if (keycode == 7 && vars->zm > 1)
+	{
+		vars->zm -= 1;
+		printf("%d\n", vars->zm);
+		zoom(vars->pixels, vars->r, vars->c, vars->zm);
+	}
+	// printf("%d\n", keycode);
 	project(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->img->img, 0, 0);
-	vars->zm += 1;
 	return (0);
 }
