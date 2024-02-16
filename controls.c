@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 21:36:55 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:48:04 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,27 @@ static void	handle_actions(int keycode, t_vars *vars)
 		exits(1, vars);
 }
 
+static void	paint_black(t_vars *vars)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < WINDOW_WIDTH)
+	{
+		j = 0;
+		while (j < WINDOW_HEIGHT)
+		{
+			put_pixels(vars->img, i, j, 0x0);
+			j++;
+		}
+		i++;
+	}
+}
+
 int	key_hook(int keycode, t_vars *vars)
 {
-	vars->img->img = mlx_new_image(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	vars->img->addr = mlx_get_data_addr(vars->img->img,
-			&vars->img->bits_per_pixel, &vars->img->line_length,
-			&vars->img->endian);
+	paint_black(vars);
 	handle_actions(keycode, vars);
 	project(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->img->img, 0, 0);
