@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 13:29:15 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 13:38:03 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:02:51 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,45 @@ static void	transform(t_pixels *pixel)
 		+ pixel->z * cos(55 * M_PI / 180);
 }
 
-void	zoom(t_pixels **pixels, int r, int c, int zm)
+void	zoom(t_pixels **pixels, t_vars *vars, int n)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < r)
+	vars->zm += n;
+	while (i < vars->r)
 	{
 		j = 0;
-		while (j < c)
+		while (j < vars->c)
 		{
 			transform(&pixels[i][j]);
-			pixels[i][j].x_transform = pixels[i][j].x_transform * zm;
-			pixels[i][j].y_transform = pixels[i][j].y_transform * zm;
-			pixels[i][j].z_transform = pixels[i][j].z_transform * zm;
+			pixels[i][j].x_transform = pixels[i][j].x_transform * vars->zm;
+			pixels[i][j].y_transform = pixels[i][j].y_transform * vars->zm;
+			pixels[i][j].z_transform = pixels[i][j].z_transform * vars->zm;
 			j++;
 		}
 		i++;
 	}
-	center(pixels, r, c);
+	center(pixels, vars->r, vars->c);
+}
+
+void	h_translate(t_pixels **pixels, t_vars vars, int n)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < vars.r)
+	{
+		j = 0;
+		while (j < vars.c)
+		{
+			pixels[i][j].x_transform += n;
+			pixels[i][j].y_transform += n;
+			// pixels[i][j].x_transform += n;
+			j++;
+		}
+		i++;
+	}
 }
