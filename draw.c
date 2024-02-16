@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 10:51:55 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:30:24 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,28 @@ void	project_iso(t_vars *vars)
 	bresenhams(vars->pixels, vars->r, vars->c, vars->img);
 }
 
+void	project_isfo(t_vars *vars)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	iso_y(vars->pixels, vars->r, vars->c, +55);
+	iso_x(vars->pixels, vars->r, vars->c, -55);
+	while (i < vars->r)
+	{
+		j = 0;
+		while (j < vars->c)
+		{
+			put_pixels(vars->img, vars->pixels[i][j].x, vars->pixels[i][j].y,
+				vars->pixels[i][j].rgb);
+			j++;
+		}
+		i++;
+	}
+	bresenhams(vars->pixels, vars->r, vars->c, vars->img);
+}
+
 void	draw(t_pixels **pixels, t_vars vars)
 {
 	t_data	img;
@@ -76,7 +98,7 @@ void	draw(t_pixels **pixels, t_vars vars)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
 			&img.line_length, &img.endian);
 	vars.img = &img;
-	vars.zm = 2;
+	vars.zm = -2;
 	project_iso(&vars);
 	mlx_put_image_to_window(vars.mlx, vars.mlx_win, img.img, 0, 0);
 	mlx_key_hook(vars.mlx_win, key_hook, &vars);
