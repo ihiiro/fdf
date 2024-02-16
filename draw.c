@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 15:57:27 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:34:38 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,20 @@ void	project(t_vars *vars)
 	bresenhams(vars->pixels, vars->r, vars->c, vars->img);
 }
 
-void	draw(t_pixels **pixels, t_vars vars)
+void	draw(t_pixels **pixels, t_vars *vars)
 {
 	t_data	img;
 
-	img.img = mlx_new_image(vars.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	img.img = mlx_new_image(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
 			&img.line_length, &img.endian);
-	vars.img = &img;
-	vars.zm = 1;
-	vars.x_angle = 55;
-	vars.y_angle = -55;
-	project_iso(&vars, vars.x_angle, vars.y_angle);
-	mlx_put_image_to_window(vars.mlx, vars.mlx_win, img.img, 0, 0);
-	mlx_key_hook(vars.mlx_win, key_hook, &vars);
-	mlx_loop(vars.mlx);
+	vars->img = &img;
+	vars->zm = 1;
+	vars->x_angle = 55;
+	vars->y_angle = -55;
+	project_iso(vars, vars->x_angle, vars->y_angle);
+	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
+	mlx_key_hook(vars->mlx_win, key_hook, vars);
+	mlx_hook(vars->mlx_win, 17, 0, exits_x, vars);
+	mlx_loop(vars->mlx);
 }

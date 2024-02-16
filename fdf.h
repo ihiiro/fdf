@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 16:23:41 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:34:31 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	project(t_vars *vars);
 
 void	data(t_pixels **pixels, char *mapfile, int rows, int cols);
 
-void	draw(t_pixels **pixels, t_vars vars);
+void	draw(t_pixels **pixels, t_vars *vars);
 
 void	put_pixels(t_data *data, int x, int y, int color);
 
@@ -92,6 +92,10 @@ void	rotate_left(t_vars *vars);
 void	rotate_right(t_vars *vars);
 
 void	transform(t_pixels *pixel, t_vars vars);
+
+int		exits(int keycode, t_vars *vars);
+
+int		exits_x(int keycode, t_vars *vars);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);

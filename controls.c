@@ -6,12 +6,13 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 16:25:19 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:36:55 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <mlx.h>
+#include <stdlib.h>
 #include "fdf.h"
 
 static void	handle_actions(int keycode, t_vars *vars)
@@ -36,9 +37,10 @@ static void	handle_actions(int keycode, t_vars *vars)
 		rotate_left(vars);
 	else if (keycode == 0)
 		rotate_right(vars);
+	else if (keycode == 53)
+		exits(1, vars);
 }
 
-#include <stdio.h>
 int	key_hook(int keycode, t_vars *vars)
 {
 	vars->img->img = mlx_new_image(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -46,8 +48,6 @@ int	key_hook(int keycode, t_vars *vars)
 			&vars->img->bits_per_pixel, &vars->img->line_length,
 			&vars->img->endian);
 	handle_actions(keycode, vars);
-	printf("%d\n", keycode);
-	// printf("%d\n", vars->x_angle);
 	project(vars);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->img->img, 0, 0);
 	return (0);

@@ -6,7 +6,7 @@
 #    By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/13 09:46:00 by yel-yaqi          #+#    #+#              #
-#    Updated: 2024/02/16 16:19:17 by yel-yaqi         ###   ########.fr        #
+#    Updated: 2024/02/16 20:27:34 by yel-yaqi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ GET_NEXT_LINE = get_next_line/get_next_line.c get_next_line/get_next_line_utils.
 HEADERS = get_next_line/get_next_line.h fdf.h
 SOURCES = main.c exitf.c rows_cols.c data.c satoi.c draw.c bresenhams.c \
 		  isometric.c controls.c transform.c actions/rotate.c actions/translate.c \
-		  actions/zoom.c
+		  actions/zoom.c exits.c
 GRAPHICS = -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
