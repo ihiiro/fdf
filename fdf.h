@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/14 12:52:45 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 09:53:57 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,17 @@ typedef struct s_data
 	int		endian;
 }			t_data;
 
+typedef struct s_vars
+{
+	t_pixels	**pixels;
+	t_data		*img;
+	void		*mlx;
+	void		*mlx_win;
+	int			zm;
+	int			r;
+	int			c;
+}				t_vars;
+
 void	exitf(char *msg);
 
 void	data(t_pixels **pixels, char *mapfile, int rows, int cols);
@@ -60,6 +71,8 @@ void	bresenhams(t_pixels **pixels, int r, int c, t_data *img);
 void	iso_x(t_pixels **pixels, int r, int c, int a);
 void	iso_y(t_pixels **pixels, int r, int c, int a);
 void	iso_z(t_pixels **pixels, int r, int c, int a);
+
+void	project_iso(t_vars *vars);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);

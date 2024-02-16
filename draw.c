@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/14 16:31:29 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:01:32 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,37 @@ static void	center(t_pixels **pixels, int r, int c)
 	}
 }
 
-static void	project(t_pixels **pixels, int r, int c, t_data *img)
+void	project_iso(t_vars *vars)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	iso_y(pixels, r, c, -55);
-	iso_x(pixels, r, c, 55);
-	center(pixels, r, c);
-	while (i < r)
+	iso_y(vars->pixels, vars->r, vars->c, -55);
+	iso_x(vars->pixels, vars->r, vars->c, 55);
+	center(vars->pixels, vars->r, vars->c);
+	while (i < vars->r)
 	{
 		j = 0;
-		while (j < c)
+		while (j < vars->c)
 		{
-			put_pixels(img, pixels[i][j].x, pixels[i][j].y, pixels[i][j].rgb);
+			put_pixels(vars->img, vars->pixels[i][j].x, vars->pixels[i][j].y, vars->pixels[i][j].rgb);
 			j++;
 		}
 		i++;
 	}
-	bresenhams(pixels, r, c, img);
+	bresenhams(vars->pixels, vars->r, vars->c, vars->img);
+}
+
+void	init_vars(t_vars *vars)
+{
+	vars->img = &img;
+	vars->mlx = mlx;
+	vars->mlx_win = mlx_win;
+	vars->pixels = pixels;
+	vars->zm = 30;
+	vars->r = r;
+	vars->c = c;
 }
 
 void	draw(t_pixels **pixels, int r, int c)
@@ -72,13 +83,14 @@ void	draw(t_pixels **pixels, int r, int c)
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
+	t_vars	vars;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "FdF");
 	img.img = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
 			&img.line_length, &img.endian);
-	project(pixels, r, c, &img);
+	project_iso(&vars);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
