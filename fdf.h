@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 15:43:28 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:23:41 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,12 @@ void	center(t_pixels **pixels, int r, int c);
 void	zoom(t_pixels **pixels, t_vars *vars, int n);
 void	h_translate(t_pixels **pixels, t_vars vars, int n);
 void	v_translate(t_pixels **pixels, t_vars vars, int n);
+void	rotate_up(t_vars *vars);
+void	rotate_down(t_vars *vars);
+void	rotate_left(t_vars *vars);
+void	rotate_right(t_vars *vars);
+
+void	transform(t_pixels *pixel, t_vars vars);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);

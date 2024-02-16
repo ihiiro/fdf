@@ -6,27 +6,13 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 16:10:23 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:25:19 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <mlx.h>
 #include "fdf.h"
-
-static void	rotate_up(t_vars *vars)
-{
-	vars->zm = 1;
-	vars->x_angle++;
-	project_iso(vars, vars->x_angle, vars->y_angle);
-}
-
-static void	rotate_down(t_vars *vars)
-{
-	vars->zm = 1;
-	vars->x_angle--;
-	project_iso(vars, vars->x_angle, vars->y_angle);
-}
 
 static void	handle_actions(int keycode, t_vars *vars)
 {
@@ -46,6 +32,10 @@ static void	handle_actions(int keycode, t_vars *vars)
 		rotate_up(vars);
 	else if (keycode == 1)
 		rotate_down(vars);
+	else if (keycode == 2)
+		rotate_left(vars);
+	else if (keycode == 0)
+		rotate_right(vars);
 }
 
 #include <stdio.h>
