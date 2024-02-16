@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 12:03:23 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:30:59 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_pixels(t_data *data, int x, int y, int color)
 	}
 }
 
-static void	center(t_pixels **pixels, int r, int c)
+void	center(t_pixels **pixels, int r, int c)
 {
 	int	i;
 	int	j;
@@ -68,14 +68,12 @@ void	project_iso(t_vars *vars)
 	bresenhams(vars->pixels, vars->r, vars->c, vars->img);
 }
 
-void	project_isfo(t_vars *vars)
+void	project(t_vars *vars)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	// iso_y(vars->pixels, vars->r, vars->c, +55);
-	// iso_x(vars->pixels, vars->r, vars->c, -55);
 	while (i < vars->r)
 	{
 		j = 0;
@@ -98,7 +96,7 @@ void	draw(t_pixels **pixels, t_vars vars)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
 			&img.line_length, &img.endian);
 	vars.img = &img;
-	vars.zm = -2;
+	vars.zm = 2;
 	project_iso(&vars);
 	mlx_put_image_to_window(vars.mlx, vars.mlx_win, img.img, 0, 0);
 	mlx_key_hook(vars.mlx_win, key_hook, &vars);

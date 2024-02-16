@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:49:05 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:31:06 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_vars
 
 void	exitf(char *msg);
 
-void	project_isfo(t_vars *vars);
+void	project(t_vars *vars);
 
 void	data(t_pixels **pixels, char *mapfile, int rows, int cols);
 
@@ -78,6 +78,9 @@ void	iso_y(t_pixels **pixels, int r, int c, int a);
 void	iso_z(t_pixels **pixels, int r, int c, int a);
 
 void	project_iso(t_vars *vars);
+
+
+void	center(t_pixels **pixels, int r, int c);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);
