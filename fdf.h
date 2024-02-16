@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 14:39:53 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:43:28 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_vars
 	void		*mlx;
 	void		*mlx_win;
 	int			zm;
+	int			x_angle;
+	int			y_angle;
 	int			r;
 	int			c;
 }				t_vars;
@@ -77,7 +79,7 @@ void	iso_x(t_pixels **pixels, int r, int c, int a);
 void	iso_y(t_pixels **pixels, int r, int c, int a);
 void	iso_z(t_pixels **pixels, int r, int c, int a);
 
-void	project_iso(t_vars *vars);
+void	project_iso(t_vars *vars, int angle_x, int angle_y);
 
 void	center(t_pixels **pixels, int r, int c);
 
