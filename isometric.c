@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 11:56:47 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:53:44 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:35:06 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	iso_x(t_pixels **pixels, int r, int c, int a)
 		while (j < c)
 		{
 			x = pixels[i][j].x;
-			pixels[i][j].y_transform = pixels[i][j].y_transform * cos(a * M_PI / 180)
-				- pixels[i][j].z * sin(a * M_PI / 180);
-			pixels[i][j].z_transform = pixels[i][j].y_transform * sin(a * M_PI / 180)
-				+ pixels[i][j].z * cos(a * M_PI / 180);
+			pixels[i][j].y_transform = pixels[i][j].y_transform
+				* cos(a * M_PI / 180) - pixels[i][j].z * sin(a * M_PI / 180);
+			pixels[i][j].z_transform = pixels[i][j].y_transform
+				* sin(a * M_PI / 180) + pixels[i][j].z * cos(a * M_PI / 180);
 			j++;
 		}
 		i++;

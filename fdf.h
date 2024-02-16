@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 12:31:06 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:30:52 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ void	iso_z(t_pixels **pixels, int r, int c, int a);
 
 void	project_iso(t_vars *vars);
 
-
 void	center(t_pixels **pixels, int r, int c);
+
+void	zoom(t_pixels **pixels, int r, int c, int zm);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);
