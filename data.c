@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:43:41 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/15 18:55:11 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:53:34 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ static void	cols_fill(t_pixels *row, char *line, int cols, int y)
 	x = 0;
 	while (i < cols)
 	{
-		row[i].z = satoi(line) * -30;
-		row[i].x = x * -30;
-		row[i].y = y * -30;
+		row[i].z = satoi(line) * -1;
+		row[i].x = x * -1;
+		row[i].y = y * -1;
 		while (*line >= '0' && *line <= '9')
 			line++;
 		if (*line == ',')

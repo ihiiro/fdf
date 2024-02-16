@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 10:11:48 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:23:21 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	project_iso(t_vars *vars);
 
 int		cols(char *mapfile);
 int		rows(char *mapfile);
+
+int		key_hook(int keycode, t_vars *vars);
 
 long	satoi(char *str);
 
