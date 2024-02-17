@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/17 16:19:16 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:50:30 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static void	handle_actions(int keycode, t_vars *vars)
 		v_translate(vars->pixels, vars, 20, 0);
 	else if (keycode == 125 && vars->zm == 1)
 		v_translate(vars->pixels, vars, -20, 0);
-	else if (keycode == 13)
+	else if (keycode == 13 && vars->zm == 1)
 		rotate_up(vars);
-	else if (keycode == 1)
+	else if (keycode == 1 && vars->zm == 1)
 		rotate_down(vars);
-	else if (keycode == 2)
+	else if (keycode == 2 && vars->zm == 1)
 		rotate_left(vars);
-	else if (keycode == 0)
+	else if (keycode == 0 && vars->zm == 1)
 		rotate_right(vars);
 	else if (keycode == 53)
 		exits(1, vars);

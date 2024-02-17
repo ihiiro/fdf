@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/17 13:24:39 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:47:21 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	project_iso(t_vars *vars, int angle_x, int angle_y)
 	iso_y(vars->pixels, vars->r, vars->c, angle_y);
 	iso_x(vars->pixels, vars->r, vars->c, angle_x);
 	center(vars->pixels, vars->r, vars->c);
+	h_translate(vars->pixels, vars, vars->x_tr * vars->zm, 1);
+	v_translate(vars->pixels, vars, vars->y_tr * vars->zm, 1);
 	while (i < vars->r)
 	{
 		j = 0;
