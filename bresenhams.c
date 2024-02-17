@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 19:36:35 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 11:51:50 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:37:16 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,26 @@ void	bresenhams(t_pixels **pixels, int r, int c, t_data *img)
 	int				i;
 	int				j;
 
-	i = 0;
-	while (i < r - 1)
+	i = -1;
+	while (++i < r - 1)
 	{
 		j = 0;
 		while (j < c - 1)
 		{
-			apply_x(pixels[i][j], pixels[i][j + 1], img);
-			apply_y(pixels[i][j], pixels[i + 1][j], img);
+			if (pixels[i][j].rgb != 16777215 && i > 0 && j > 0)
+			{
+				apply_x(pixels[i][j], pixels[i][j + 1], img);
+				apply_x(pixels[i][j], pixels[i][j - 1], img);
+				apply_y(pixels[i][j], pixels[i + 1][j], img);
+				apply_y(pixels[i][j], pixels[i - 1][j], img);
+			}
+			else
+			{
+				pixels[i][j].rgb = pixels[i][j + 1].rgb;
+				apply_x(pixels[i][j], pixels[i][j + 1], img);
+				apply_y(pixels[i][j], pixels[i + 1][j], img);
+			}
 			j++;
 		}
-		i++;
 	}
 }
