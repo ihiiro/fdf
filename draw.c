@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 21:34:38 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:24:39 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void	draw(t_pixels **pixels, t_vars *vars)
 	vars->zm = 1;
 	vars->x_angle = 55;
 	vars->y_angle = -55;
+	vars->x_tr = 0;
+	vars->y_tr = 0;
 	project_iso(vars, vars->x_angle, vars->y_angle);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
 	mlx_key_hook(vars->mlx_win, key_hook, vars);

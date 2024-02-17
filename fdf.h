@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 21:34:31 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:24:22 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_vars
 	int			zm;
 	int			x_angle;
 	int			y_angle;
+	int			x_tr;
+	int			y_tr;
 	int			r;
 	int			c;
 }				t_vars;
@@ -84,8 +86,8 @@ void	project_iso(t_vars *vars, int angle_x, int angle_y);
 void	center(t_pixels **pixels, int r, int c);
 
 void	zoom(t_pixels **pixels, t_vars *vars, int n);
-void	h_translate(t_pixels **pixels, t_vars vars, int n);
-void	v_translate(t_pixels **pixels, t_vars vars, int n);
+void	h_translate(t_pixels **pixels, t_vars *vars, int n, int er);
+void	v_translate(t_pixels **pixels, t_vars *vars, int n, int er);
 void	rotate_up(t_vars *vars);
 void	rotate_down(t_vars *vars);
 void	rotate_left(t_vars *vars);

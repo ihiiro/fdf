@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:16:09 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 16:19:55 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:44:43 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ void	zoom(t_pixels **pixels, t_vars *vars, int n)
 		i++;
 	}
 	center(pixels, vars->r, vars->c);
+	h_translate(pixels, vars, vars->x_tr * vars->zm, 1);
+	v_translate(pixels, vars, vars->y_tr * vars->zm, 1);
 }

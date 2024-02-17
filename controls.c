@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 21:48:04 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:22:43 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static void	handle_actions(int keycode, t_vars *vars)
 	else if (keycode == 7 && vars->zm > 1)
 		zoom(vars->pixels, vars, -1);
 	else if (keycode == 124)
-		h_translate(vars->pixels, *vars, -20);
+		h_translate(vars->pixels, vars, -20, 0);
 	else if (keycode == 123)
-		h_translate(vars->pixels, *vars, 20);
+		h_translate(vars->pixels, vars, 20, 0);
 	else if (keycode == 126)
-		v_translate(vars->pixels, *vars, 20);
+		v_translate(vars->pixels, vars, 20, 0);
 	else if (keycode == 125)
-		v_translate(vars->pixels, *vars, -20);
+		v_translate(vars->pixels, vars, -20, 0);
 	else if (keycode == 13)
 		rotate_up(vars);
 	else if (keycode == 1)
