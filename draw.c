@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:00:13 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:14:39 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	center(t_pixels **pixels, int r, int c)
 	}
 }
 
-void	project_iso(t_vars *vars, int angle_x, int angle_y)
+void	project_iso(t_vars *vars, int angle_x, int angle_y, int angle_z)
 {
 	int	i;
 	int	j;
@@ -55,6 +55,7 @@ void	project_iso(t_vars *vars, int angle_x, int angle_y)
 	i = 0;
 	iso_y(vars->pixels, vars->r, vars->c, angle_y);
 	iso_x(vars->pixels, vars->r, vars->c, angle_x);
+	iso_z(vars->pixels, vars->r, vars->c, angle_z);
 	center(vars->pixels, vars->r, vars->c);
 	h_translate(vars->pixels, vars, vars->x_tr * vars->zm, 1);
 	v_translate(vars->pixels, vars, vars->y_tr * vars->zm, 1);
@@ -103,9 +104,10 @@ void	draw(t_pixels **pixels, t_vars *vars)
 	vars->zm = 1;
 	vars->x_angle = 0;
 	vars->y_angle = 0;
+	vars->z_angle = 0;
 	vars->x_tr = 0;
 	vars->y_tr = 0;
-	project_iso(vars, vars->x_angle, vars->y_angle);
+	project_iso(vars, vars->x_angle, vars->y_angle, vars->z_angle);
 	mlx_put_image_to_window(vars->mlx, vars->mlx_win, img.img, 0, 0);
 	mlx_key_hook(vars->mlx_win, key_hook, vars);
 	mlx_hook(vars->mlx_win, 17, 0, exits_x, vars);

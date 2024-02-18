@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:49:01 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:22:10 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:09:07 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static int	handle_actions(int keycode, t_vars *vars)
 		return (rotate_right(vars), 1);
 	else if (keycode == 53)
 		exits(1, vars);
+	else if (keycode == 49)
+		return (blackhole_event_horizon(vars), 1);
 	return (0);
 }
 
