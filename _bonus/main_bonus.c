@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:03 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:59:13 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:59:24 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 int	main(int argc, char **argv)
 {

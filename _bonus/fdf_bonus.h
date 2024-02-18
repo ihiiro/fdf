@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:05 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:55:25 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:40:31 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FDF_BONUS_H
+# define FDF_BONUS_H
 
 # define WINDOW_HEIGHT 1080
 # define WINDOW_WIDTH 1920
@@ -68,6 +68,8 @@ typedef struct s_vars
 
 void	exitf(char *msg);
 
+void	project(t_vars *vars);
+
 void	data(t_pixels **pixels, char *mapfile, int rows, int cols);
 
 void	draw(t_pixels **pixels, t_vars *vars);
@@ -83,6 +85,17 @@ void	iso_z(t_pixels **pixels, int r, int c, int a);
 void	project_iso(t_vars *vars, int angle_x, int angle_y, int angle_z);
 
 void	center(t_pixels **pixels, int r, int c);
+
+void	zoom(t_pixels **pixels, t_vars *vars, int n);
+void	h_translate(t_pixels **pixels, t_vars *vars, int n, int er);
+void	v_translate(t_pixels **pixels, t_vars *vars, int n, int er);
+void	rotate_up(t_vars *vars);
+void	rotate_down(t_vars *vars);
+void	rotate_left(t_vars *vars);
+void	rotate_right(t_vars *vars);
+void	blackhole_event_horizon(t_vars *vars);
+
+void	transform(t_pixels *pixel, t_vars vars);
 
 int		exits(int keycode, t_vars *vars);
 

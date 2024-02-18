@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   translate.c                                        :+:      :+:    :+:   */
+/*   exits_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 16:16:41 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/17 13:24:13 by yel-yaqi         ###   ########.fr       */
+/*   Created: 2024/02/16 20:28:13 by yel-yaqi          #+#    #+#             */
+/*   Updated: 2024/02/18 15:40:19 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include <mlx.h>
+#include <stdlib.h>
+#include "fdf_bonus.h"
 
-void	h_translate(t_pixels **pixels, t_vars *vars, int n, int er)
+int	exits_x(int keycode, t_vars *vars)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < vars->r)
-	{
-		j = 0;
-		while (j < vars->c)
-		{
-			pixels[i][j].x_transform += n;
-			j++;
-		}
-		i++;
-	}
-	if (!er)
-		vars->x_tr += n;
+	(void)keycode;
+	exit(EXIT_SUCCESS);
+	return (0);
 }
 
-void	v_translate(t_pixels **pixels, t_vars *vars, int n, int er)
+int	exits(int keycode, t_vars *vars)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	(void)keycode;
+	mlx_destroy_window(vars->mlx, vars->mlx_win);
 	while (i < vars->r)
 	{
-		j = 0;
-		while (j < vars->c)
-		{
-			pixels[i][j].y_transform += n;
-			j++;
-		}
+		free((void *)vars->pixels[i]);
 		i++;
 	}
-	if (!er)
-		vars->y_tr += n;
+	free(vars->pixels);
+	exit(EXIT_SUCCESS);
+	return (0);
 }

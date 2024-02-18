@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   transform.c                                        :+:      :+:    :+:   */
+/*   transform_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 16:13:53 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 16:14:19 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:40:46 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 void	transform(t_pixels *pixel, t_vars vars)
 {

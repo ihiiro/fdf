@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:54:44 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:40:14 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <mlx.h>
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 void	put_pixels(t_data *data, int x, int y, int color)
 {
@@ -57,6 +57,8 @@ void	project_iso(t_vars *vars, int angle_x, int angle_y, int angle_z)
 	iso_x(vars->pixels, vars->r, vars->c, angle_x);
 	iso_z(vars->pixels, vars->r, vars->c, angle_z);
 	center(vars->pixels, vars->r, vars->c);
+	h_translate(vars->pixels, vars, vars->x_tr * vars->zm, 1);
+	v_translate(vars->pixels, vars, vars->y_tr * vars->zm, 1);
 	while (i < vars->r)
 	{
 		j = 0;
@@ -100,8 +102,8 @@ void	draw(t_pixels **pixels, t_vars *vars)
 			&img.line_length, &img.endian);
 	vars->img = &img;
 	vars->zm = 1;
-	vars->x_angle = 55;
-	vars->y_angle = -55;
+	vars->x_angle = 0;
+	vars->y_angle = 0;
 	vars->z_angle = 0;
 	vars->x_tr = 0;
 	vars->y_tr = 0;

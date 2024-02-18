@@ -1,40 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exits.c                                            :+:      :+:    :+:   */
+/*   translate_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/16 20:28:13 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:44:59 by yel-yaqi         ###   ########.fr       */
+/*   Created: 2024/02/16 16:16:41 by yel-yaqi          #+#    #+#             */
+/*   Updated: 2024/02/18 15:40:01 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include "fdf.h"
+#include "../fdf_bonus.h"
 
-int	exits_x(int keycode, t_vars *vars)
-{
-	(void)keycode;
-	exit(EXIT_SUCCESS);
-	return (0);
-}
-
-int	exits(int keycode, t_vars *vars)
+void	h_translate(t_pixels **pixels, t_vars *vars, int n, int er)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	(void)keycode;
-	mlx_destroy_window(vars->mlx, vars->mlx_win);
 	while (i < vars->r)
 	{
-		free((void *)vars->pixels[i]);
+		j = 0;
+		while (j < vars->c)
+		{
+			pixels[i][j].x_transform += n;
+			j++;
+		}
 		i++;
 	}
-	free(vars->pixels);
-	exit(EXIT_SUCCESS);
-	return (0);
+	if (!er)
+		vars->x_tr += n;
+}
+
+void	v_translate(t_pixels **pixels, t_vars *vars, int n, int er)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < vars->r)
+	{
+		j = 0;
+		while (j < vars->c)
+		{
+			pixels[i][j].y_transform += n;
+			j++;
+		}
+		i++;
+	}
+	if (!er)
+		vars->y_tr += n;
 }

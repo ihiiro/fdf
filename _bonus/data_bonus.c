@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.c                                             :+:      :+:    :+:   */
+/*   data_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 10:43:41 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:44:46 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:40:12 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "get_next_line/get_next_line.h"
-#include "fdf.h"
+#include "fdf_bonus.h"
 
 static int	pow(int base, int exp)
 {
