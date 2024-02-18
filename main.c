@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:03 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/18 15:59:13 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:04:18 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	int			projection;
 
 	if (argc > 2)
-		exitf("Error: more than 1 argument");
+		exitf("Error: more than 1 argument\n");
 	vars.r = rows(argv[1]);
 	vars.c = cols(argv[1]);
 	vars.pixels = (t_pixels **)malloc(sizeof(t_pixels *) * vars.r);
