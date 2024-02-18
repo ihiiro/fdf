@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:24:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/17 17:01:23 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:00:13 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ void	draw(t_pixels **pixels, t_vars *vars)
 			&img.line_length, &img.endian);
 	vars->img = &img;
 	vars->zm = 1;
-	vars->x_angle = 55;
-	vars->y_angle = -55;
+	vars->x_angle = 0;
+	vars->y_angle = 0;
 	vars->x_tr = 0;
 	vars->y_tr = 0;
 	project_iso(vars, vars->x_angle, vars->y_angle);

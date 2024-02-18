@@ -6,22 +6,10 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 09:46:03 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/16 21:37:24 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/18 14:56:19 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-
-parsing
-	open file for counting/malloc
-	malloc 2d array of structs {x, y, z, rgb}
-	open file for reading data
-	convert from hex to dec
-draw pixels isometrically
-	transform all points to iso
-	draw lines between points
-
-*/
 
 #include <mlx.h>
 #include <stdlib.h>
@@ -37,6 +25,7 @@ int	main(int argc, char **argv)
 {
 	t_vars		vars;
 	int			i;
+	int			projection;
 
 	atexit(err);
 	vars.r = rows(argv[1]);
